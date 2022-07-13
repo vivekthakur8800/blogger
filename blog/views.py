@@ -137,7 +137,7 @@ def contact(request):
 #search
 def search(request):
     query=request.GET['query']
-    posts=post.objects.filter(title__icontains=query)|post.objects.filter(disc__icontains=query)|post.objects.filter(user__username=query)
+    posts=post.objects.filter(title__icontains=query)|post.objects.filter(disc__icontains=query)|post.objects.filter(user__username=query)|post.objects.filter(title__startswith=query)|post.objects.filter(disc__startswith=query)
     return render(request,'blog/home.html',{'posts':posts})
 
 
