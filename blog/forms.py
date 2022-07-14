@@ -12,6 +12,11 @@ class signupform(UserCreationForm):
     class Meta:
         model=User
         fields=['username','first_name','last_name','email']
+        widgets={
+            'username':forms.TextInput(attrs={'placeholder':'Username'}),
+            'first_name':forms.TextInput(attrs={'placeholder':'First Name'}),
+            'last_name':forms.TextInput(attrs={'placeholder':'Last Name'}),
+        }
 
 class contactform(forms.ModelForm):
     # name=forms.CharField(widget=forms.te)

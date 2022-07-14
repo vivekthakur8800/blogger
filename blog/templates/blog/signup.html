@@ -6,11 +6,13 @@
     <h3 class="text-white">Signup Page</h3>
     <form action="" method="POST">
         {% csrf_token %}
-        {{form.as_p}}
+        {% for fm in form %}
+            {{fm.label_tag}} {{fm}} {{fm.errors|striptags}}<br><br>
+        {% endfor %}
         <input type="submit" value="Signup" class="btn btn-primary">
         {% if messages %}
     {% for message in messages %}
-        <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %} mt-3" role="alert">{{ message }}</div>
+        <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %} mt-3" role="alert">{{message}}</div>
     {% endfor %}
 {% endif %}
     </form>
